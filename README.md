@@ -11,9 +11,10 @@ let clearSuccess = 0;
 $('.btn_follow').each(function(){
   $.post('/i/commit', {'cmd':'add_black_list','portrait':$(this).attr('portrait'),'tbs':PageData.tbs,'ie':'utf-8'}, function(){
     clearSuccess += 1
+    if (clearSuccess == $('.btn_follow').length){
+      window.location.reload();
+    }
   })
 })
-if (clearSuccess == $('.btn_follow').length){
-    window.location.reload();
-}
+
 ```
